@@ -8,7 +8,7 @@ require 'pp'
 api_key = ENV["STEAM_API_KEY"]
 
 @hero_list = JSON.parse(open("http://api.steampowered.com/IEconDOTA2_570/GetHeroes/v1/?key=#{api_key}").read)["result"]["heroes"].map { |hero| hero["name"].gsub(/npc_dota_hero_/, "") }
-@id = JSON.parse(open('http://api.steampowered.com/IEconDOTA2_570/GetHeroes/v1/?key=45C67218A2A02C9088D38B451BA49B64').read)["result"]["heroes"].map { |hero| hero["id"] }
+@id = JSON.parse(open("http://api.steampowered.com/IEconDOTA2_570/GetHeroes/v1/?key=#{api_key}").read)["result"]["heroes"].map { |hero| hero["id"] }
 @id = @id.reverse
 def hero_list_json
     f = File.open('hero_search.json', 'w')
